@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
 
-const MODULE_ROOT = 'src/modules';
+const MODULE_ROOT = 'src';
 
 const color = {
   b: chalk.bold,
@@ -14,10 +14,6 @@ const color = {
 };
 
 module.exports = class extends Generator {
-  _parseName() {
-    // Transform to kebab-case
-    this.moduleName = this.options.name.replace(/[A-Z]/g, ' $&').toLowerCase().trim().replace(/[\W]+/g, '-');
-  }
 
   constructor(args, opts) {
     super(args, opts);
@@ -28,7 +24,6 @@ module.exports = class extends Generator {
       type: String,
       required: true
     });
-    this._parseName();
 
     // Cli options
     this.option('quiet', {
@@ -36,6 +31,11 @@ module.exports = class extends Generator {
       alias: 'q',
       type: Boolean
     });
+  }
+
+  initializing() {
+    // Transform to kebab-case
+    this.moduleName = this.options.name.replace(/[A-Z]/g, ' $&').toLowerCase().trim().replace(/[\W]+/g, '-');
   }
 
   prompting() {

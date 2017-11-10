@@ -1,25 +1,18 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
-var _ = require('lodash');
+const Generator = require('yeoman-generator');
+const chalk = require('chalk');
+const yosay = require('yosay');
+const _ = require('lodash');
 
-var path = require('path');
+const path = require('path');
 
-var componentRoot = 'src/modules';
-// TODO update this generator to be compatible with new module hierarchy
-var defaultNamespace = ['common'];
+const MODULE_ROOT = 'src';
+const NAMESPACE_DEFAULT = ['common', 'components'];
 
-module.exports = yeoman.Base.extend({
-  _parseName: function () {
-    var names = this.name.split('/').filter(function (item) {
-      return item.trim().length;
-    });
-    this.componentName = _.upperFirst(_.camelCase(names.pop()));
-    this.namespace = (names.length ? names : defaultNamespace).join('/');
-  },
-  constructor: function () {
-    yeoman.Base.apply(this, arguments);
+module.exports = class extends Generator {
+
+  constructor(args, opts) {
+    super(args, opts);
 
     // Cli arguments
     this.argument('name', {
@@ -27,26 +20,32 @@ module.exports = yeoman.Base.extend({
       type: String,
       required: true
     });
-    this._parseName();
 
     // Cli options
     this.option('quiet', {
-      desc: 'Don\'t ask, use default parameters.',
+      desc: `Don't ask, use default parameters.`,
       alias: 'q',
       type: Boolean
     });
-  },
-  prompting: function () {
+  }
+
+  initializing() {
+    const names = this.options.name.split('/').filter(item => Boolean(item.trim().length));
+    this.componentName = _.upperFirst(_.camelCase(names.pop()));
+    this.namespace = (names.length ? names : NAMESPACE_DEFAULT).join('/');
+  }
+
+  prompting() {
     // Greet the user.
     this.log(yosay(
       'We are creating the ' +
       chalk.green.bold(this.componentName) +
       ' component inside ' +
-      chalk.blue.italic(path.join(componentRoot, this.namespace)) +
+      chalk.blue.italic(path.join(MODULE_ROOT, this.namespace)) +
       ' directory!'
     ));
 
-    var prompts = [
+    const prompts = [
       {
         type: 'confirm',
         name: 'isStateless',
@@ -65,16 +64,16 @@ module.exports = yeoman.Base.extend({
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
-  },
+  }
 
-  writing: function () {
-    var templateName = this.props.isStateless ?
+  writing() {
+    const templateName = this.props.isStateless ?
       'component-stateless.jsx.ejs' : 'component.jsx.ejs';
 
     // .jsx
     this.fs.copyTpl(
       this.templatePath(templateName),
-      this.destinationPath(path.join(componentRoot, this.namespace, this.componentName + '.jsx')),
+      this.destinationPath(path.join(MODULE_ROOT, this.namespace, this.componentName + '.jsx')),
       {
         name: this.componentName,
         styles: this.props.hasStyles
@@ -85,12 +84,11 @@ module.exports = yeoman.Base.extend({
       // .scss
       this.fs.copyTpl(
         this.templatePath('component.scss.ejs'),
-        this.destinationPath(path.join(componentRoot, this.namespace, this.componentName + '.scss')),
+        this.destinationPath(path.join(MODULE_ROOT, this.namespace, this.componentName + '.scss')),
         {
           name: this.componentName
         }
       );
     }
   }
-
-});
+};
