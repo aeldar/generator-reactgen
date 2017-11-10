@@ -1,6 +1,6 @@
 {
   "name": "generator-reactgen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Yeoman generator for React/Redux apps",
   "homepage": "https://github.com/aeldar/generator-reactgen",
   "repository": "git@github.com:aeldar/generator-reactgen.git",
