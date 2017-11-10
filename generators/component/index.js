@@ -8,14 +8,6 @@ const path = require('path');
 const MODULE_ROOT = 'src';
 const NAMESPACE_DEFAULT = ['common', 'components'];
 
-const color = {
-  b: chalk.bold,
-  i: chalk.italic,
-  yb: chalk.yellow.bold,
-  gb: chalk.green.bold,
-  bi: chalk.blue.italic
-};
-
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
@@ -36,16 +28,24 @@ module.exports = class extends Generator {
   }
 
   initializing() {
-    const names = this.options.name.split('/').filter(item => Boolean(item.trim().length));
+    const names = this.options.name
+      .split('/')
+      .filter(item => Boolean(item.trim().length));
     this.componentName = _.upperFirst(_.camelCase(names.pop()));
     this.namespace = (names.length ? names : NAMESPACE_DEFAULT).join('/');
   }
 
   prompting() {
     // Greet the user.
-    this.log(yosay(
-      `We are creating the ${color.gb(this.componentName)} component inside ${color.bi(path.join(MODULE_ROOT, this.namespace))} directory!`
-    ));
+    this.log(
+      yosay(
+        `We are creating the ${chalk.green.bold(
+          this.componentName
+        )} component inside ${chalk.blue.italic(
+          path.join(MODULE_ROOT, this.namespace)
+        )} directory!`
+      )
+    );
 
     const prompts = [
       {
@@ -69,12 +69,16 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const templateName = this.props.isStateless ? 'component-stateless.jsx.ejs' : 'component.jsx.ejs';
+    const templateName = this.props.isStateless
+      ? 'component-stateless.jsx.ejs'
+      : 'component.jsx.ejs';
 
     // .jsx
     this.fs.copyTpl(
       this.templatePath(templateName),
-      this.destinationPath(path.join(MODULE_ROOT, this.namespace, this.componentName + '.jsx')),
+      this.destinationPath(
+        path.join(MODULE_ROOT, this.namespace, this.componentName + '.jsx')
+      ),
       {
         name: this.componentName,
         styles: this.props.hasStyles
@@ -85,7 +89,9 @@ module.exports = class extends Generator {
       // .scss
       this.fs.copyTpl(
         this.templatePath('component.scss.ejs'),
-        this.destinationPath(path.join(MODULE_ROOT, this.namespace, this.componentName + '.scss')),
+        this.destinationPath(
+          path.join(MODULE_ROOT, this.namespace, this.componentName + '.scss')
+        ),
         {
           name: this.componentName
         }

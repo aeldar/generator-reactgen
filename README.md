@@ -1,15 +1,16 @@
-generator-reactgen
+generator-reactgen [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 ==================
 Yeoman generator for React/Redux apps
 
 Installation
 ------------
 
-First, install [Yeoman](http://yeoman.io) using [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/)
+First, install [Yeoman](http://yeoman.io) and `generator-reactgen` using [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/)
  (it is assumed that [node.js](https://nodejs.org/) has already been pre-installed).
 
 ```bash
-yarn global add yo # or: npm i -g yo
+yarn global add yo                  # npm i -g yo
+yarn global add generator-reactgen  # npm i -g generator-reactgen
 ```
 
 Usage
@@ -60,9 +61,21 @@ Clone this repo, and link it globaly:
 ```bash
 git clone git@bitbucket.org:aeldar/generator-reactgen.git
 cd generator-reactgen
-yarn link # or: npm link
+yarn link # npm link
 ```
 
-Author
-------
-* [Eldar Aliyev](https://bitbucket.org/aeldar/)
+License
+-------
+
+MIT © [Eldar Aliyev]()
+
+
+[npm-image]: https://badge.fury.io/js/generator-reactgen.svg
+[npm-url]: https://npmjs.org/package/generator-reactgen
+[travis-image]: https://travis-ci.org/aeldar/generator-reactgen.svg?branch=master
+[travis-url]: https://travis-ci.org/aeldar/generator-reactgen
+[daviddm-image]: https://david-dm.org/aeldar/generator-reactgen.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/aeldar/generator-reactgen
+[coveralls-image]: https://coveralls.io/repos/aeldar/generator-reactgen/badge.svg
+[coveralls-url]: https://coveralls.io/r/aeldar/generator-reactgen
+

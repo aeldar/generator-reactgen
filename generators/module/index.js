@@ -1,17 +1,10 @@
+'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
 
 const MODULE_ROOT = 'src';
-
-const color = {
-  b: chalk.bold,
-  i: chalk.italic,
-  yb: chalk.yellow.bold,
-  gb: chalk.green.bold,
-  bi: chalk.blue.italic
-};
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -34,14 +27,24 @@ module.exports = class extends Generator {
 
   initializing() {
     // Transform to kebab-case
-    this.moduleName = this.options.name.replace(/[A-Z]/g, ' $&').toLowerCase().trim().replace(/[\W]+/g, '-');
+    this.moduleName = this.options.name
+      .replace(/[A-Z]/g, ' $&')
+      .toLowerCase()
+      .trim()
+      .replace(/[\W]+/g, '-');
   }
 
   prompting() {
     // Greet the user.
-    this.log(yosay(
-      `We are creating the ${color.gb(this.moduleName)} module inside ${color.bi(path.join(MODULE_ROOT, this.moduleName))} directory!`
-    ));
+    this.log(
+      yosay(
+        `We are creating the ${chalk.green.bold(
+          this.moduleName
+        )} module inside ${chalk.blue.italic(
+          path.join(MODULE_ROOT, this.moduleName)
+        )} directory!`
+      )
+    );
 
     const prompts = [];
 
@@ -65,7 +68,9 @@ module.exports = class extends Generator {
   end() {
     // Notification
     this.log(
-      `- ${color.yb('Don\'t forget ')} to ${color.b('plug in ')}${color.i(this.moduleName)}'s ${color.gb('reducers')} inside your root reducer!`
+      `- ${chalk.yellow.bold("Don't forget ")} to ${chalk.bold('plug in ')}${chalk.italic(
+        this.moduleName
+      )}'s ${chalk.green.bold('reducers')} inside your root reducer!`
     );
   }
 };

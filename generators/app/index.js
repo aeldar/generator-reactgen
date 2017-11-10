@@ -1,15 +1,17 @@
+'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
 const DELAY = 2000;
 
-const delayMessage = (message, delay, context) => new Promise(resolve => {
-  setTimeout(() => {
-    context.log(message);
-    return resolve();
-  }, delay || 1000);
-});
+const delayMessage = (message, delay, context) =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      context.log(message);
+      return resolve();
+    }, delay || 1000);
+  });
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -27,10 +29,12 @@ module.exports = class extends Generator {
 
   saveRoot() {
     this.config.save();
-    this.log('Current directory marked as root for further generator invocations.' +
-      '\nTo reset it just remove ' +
-      chalk.red('.jo-rc.json') +
-      ' file from this directory.');
+    this.log(
+      'Current directory marked as root for further generator invocations.' +
+        '\nTo reset it just remove ' +
+        chalk.red('.jo-rc.json') +
+        ' file from this directory.'
+    );
   }
 
   prompting() {
@@ -52,9 +56,7 @@ module.exports = class extends Generator {
   /* ================= Private stuff ================= */
 
   _greeting() {
-    this.log(yosay(
-      'We are creating the ' + chalk.red('React/Redux') + ' web app!'
-    ));
+    this.log(yosay('We are creating the ' + chalk.red('React/Redux') + ' web app!'));
   }
 
   _askMortality() {
@@ -80,18 +82,26 @@ module.exports = class extends Generator {
 
   _disableMortality() {
     if (this.shit) {
-      this.log(chalk.blue.italic('Trying to disable the mortality gene from your DNA...'));
+      this.log(
+        chalk.blue.italic('Trying to disable the mortality gene from your DNA...')
+      );
     }
   }
 
   _dramaticPause() {
-    return this.shit ?
-      delayMessage(chalk.blue.italic('Operation failed.'), this.delay, this) : null;
+    return this.shit
+      ? delayMessage(chalk.blue.italic('Operation failed.'), this.delay, this)
+      : null;
   }
 
   _sorry() {
-    return this.shit ?
-      delayMessage(chalk.blue.italic('Mortality gene is read-only. Wrong species detected.'), this.delay, this) : null;
+    return this.shit
+      ? delayMessage(
+          chalk.blue.italic('Mortality gene is read-only. Wrong species detected.'),
+          this.delay,
+          this
+        )
+      : null;
   }
 
   _finish() {

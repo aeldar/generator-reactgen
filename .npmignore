@@ -1,5 +1,7 @@
 coverage/
 test/
+__tests__
 .idea/
 
 yarn-error.log
+npm-debug.log
