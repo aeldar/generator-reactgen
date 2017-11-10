@@ -1,0 +1,29 @@
+/**
+ * <%= name %> - short description of a component.
+ */
+import React, { PropTypes } from 'react';
+<% if (styles) { -%>
+import classnames from 'classnames';
+
+import styles from './<%= name %>.scss';
+<% } -%>
+
+const <%= name %> = (props) => (
+<% if (styles) { -%>
+  <div
+    className={classnames(styles.container)}
+  >
+    {props.children}
+  </div>
+<% } else { -%>
+  <div>{props.children}</div>
+<% } -%>
+);
+
+<%= name %>.propTypes = {
+  children: PropTypes.node,
+};
+
+<%= name %>.defaultProps = {};
+
+export default <%= name %>;
