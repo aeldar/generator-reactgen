@@ -4,7 +4,7 @@ Yeoman generator for React/Redux apps
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) using [npm](https://www.npmjs.com/)
+First, install [Yeoman](http://yeoman.io) using [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/)
  (it is assumed that [node.js](https://nodejs.org/) has already been pre-installed).
 
 ```bash
