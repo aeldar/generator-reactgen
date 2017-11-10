@@ -1,4 +1,3 @@
-'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
@@ -24,7 +23,7 @@ module.exports = class extends Generator {
     });
     this.shit = !this.options.noshit;
     this.delay = DELAY;
-  };
+  }
 
   saveRoot() {
     this.config.save();
@@ -42,10 +41,11 @@ module.exports = class extends Generator {
       .then(() => this.props.mortality && this._disableMortality())
       .then(() => this.props.mortality && this._dramaticPause())
       .then(() => this.props.mortality && this._sorry())
-      .then(() => this.props.mortality && this._finish())
-  };
+      .then(() => this.props.mortality && this._finish());
+  }
 
   install() {
+    // eslint-disable-next-line
     // this.installDependencies();
   }
 
@@ -64,11 +64,11 @@ module.exports = class extends Generator {
         name: 'mortality',
         message: 'Would you like to live forever?',
         default: true,
-        store: true // save the answer for future use
+        store: true // Save the answer for future use
       }
     ];
 
-    return this.prompt(prompts).then((props) => {
+    return this.prompt(prompts).then(props => {
       // To access props later use this.props.mortality;
       this.props = props;
     });
@@ -85,21 +85,16 @@ module.exports = class extends Generator {
   }
 
   _dramaticPause() {
-    return this.shit
-      ? delayMessage(chalk.blue.italic('Operation failed.'), this.delay, this)
-      : null;
+    return this.shit ?
+      delayMessage(chalk.blue.italic('Operation failed.'), this.delay, this) : null;
   }
 
   _sorry() {
-    return this.shit
-      ? delayMessage(chalk.blue.italic('Mortality gene is read-only. Wrong species detected.'),
-        this.delay, this)
-      : null;
+    return this.shit ?
+      delayMessage(chalk.blue.italic('Mortality gene is read-only. Wrong species detected.'), this.delay, this) : null;
   }
 
   _finish() {
-    return this.shit ? delayMessage(chalk.blue.italic('---'),
-      this.delay, this) : null;
+    return this.shit ? delayMessage(chalk.blue.italic('---'), this.delay, this) : null;
   }
-
 };

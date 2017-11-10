@@ -21,7 +21,7 @@ module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
 
-    // cli arguments
+    // Cli arguments
     this.argument('name', {
       desc: 'New component name',
       type: String,
@@ -29,7 +29,7 @@ module.exports = yeoman.Base.extend({
     });
     this._parseName();
 
-    // cli options
+    // Cli options
     this.option('quiet', {
       desc: 'Don\'t ask, use default parameters.',
       alias: 'q',
@@ -37,7 +37,7 @@ module.exports = yeoman.Base.extend({
     });
   },
   prompting: function () {
-    // greet the user.
+    // Greet the user.
     this.log(yosay(
       'We are creating the ' +
       chalk.green.bold(this.componentName) +

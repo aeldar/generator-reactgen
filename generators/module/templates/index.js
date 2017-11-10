@@ -4,5 +4,5 @@ import * as constants from './constants';
 import reducer from './reducers';
 import * as selectors from './selectors';
 
-// module api
-export default { actions, components, constants, reducer, selectors, Container: components.Container };
+// Module api
+export default {actions, components, constants, reducer, selectors, Container: components.Container};

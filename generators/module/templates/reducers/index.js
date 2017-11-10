@@ -9,11 +9,11 @@
  *     });
  */
 
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 import data from './data';
 
 export default combineReducers({
-  data,
-  // here could be any other subreducer
+  data
+  // Here could be any other subreducer
 });

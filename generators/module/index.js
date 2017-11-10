@@ -11,12 +11,12 @@ var moduleRoot = 'src/modules';
 module.exports = yeoman.Base.extend({
   _parseName: function () {
     this.moduleName = this.name.toLowerCase().trim()
-      .replace(/[\W]+/g, '-'); // replace any character except [^a-zA-Z0-9_] with a dash
+      .replace(/[\W]+/g, '-'); // Replace any character except [^a-zA-Z0-9_] with a dash
   },
   constructor: function () {
     yeoman.Base.apply(this, arguments);
 
-    // cli arguments
+    // Cli arguments
     this.argument('name', {
       desc: 'New module name',
       type: String,
@@ -24,7 +24,7 @@ module.exports = yeoman.Base.extend({
     });
     this._parseName();
 
-    // cli options
+    // Cli options
     this.option('quiet', {
       desc: 'Don\'t ask, use default parameters.',
       alias: 'q',
@@ -32,7 +32,7 @@ module.exports = yeoman.Base.extend({
     });
   },
   prompting: function () {
-    // greet the user.
+    // Greet the user.
     this.log(yosay(
       'We are creating the ' +
       chalk.green.bold(this.moduleName) +
@@ -50,10 +50,9 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-
-    // copy templates
+    // Copy templates
     this.fs.copyTpl(
-      // globs: https://github.com/isaacs/node-glob#glob-primer
+      // Globs: https://github.com/isaacs/node-glob#glob-primer
       this.templatePath('**/*.?(js|jsx)'),
       this.destinationPath(path.join(moduleRoot, this.moduleName)),
       {
@@ -63,7 +62,7 @@ module.exports = yeoman.Base.extend({
   },
 
   end: function () {
-    // notification
+    // Notification
     this.log(
       '- ' +
       chalk.yellow.bold('Don\'t forget ') +
