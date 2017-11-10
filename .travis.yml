@@ -20,4 +20,5 @@ script:
 # Only the node version 9 job will upload the lockfile and update coverage
 after_script:
   - greenkeeper-lockfile-upload
-  - "[ -f ./coverage/lcov.info ] && cat ./coverage/lcov.info | coveralls"
+  - ls -al
+  - cat ./coverage/lcov.info | coveralls
