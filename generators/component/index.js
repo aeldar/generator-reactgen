@@ -3,14 +3,20 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const _ = require('lodash');
-
 const path = require('path');
 
 const MODULE_ROOT = 'src';
 const NAMESPACE_DEFAULT = ['common', 'components'];
 
-module.exports = class extends Generator {
+const color = {
+  b: chalk.bold,
+  i: chalk.italic,
+  yb: chalk.yellow.bold,
+  gb: chalk.green.bold,
+  bi: chalk.blue.italic
+};
 
+module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
@@ -38,11 +44,7 @@ module.exports = class extends Generator {
   prompting() {
     // Greet the user.
     this.log(yosay(
-      'We are creating the ' +
-      chalk.green.bold(this.componentName) +
-      ' component inside ' +
-      chalk.blue.italic(path.join(MODULE_ROOT, this.namespace)) +
-      ' directory!'
+      `We are creating the ${color.gb(this.componentName)} component inside ${color.bi(path.join(MODULE_ROOT, this.namespace))} directory!`
     ));
 
     const prompts = [
@@ -60,15 +62,14 @@ module.exports = class extends Generator {
       }
     ];
 
-    return this.prompt(prompts).then(function (props) {
+    return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-    }.bind(this));
+    });
   }
 
   writing() {
-    const templateName = this.props.isStateless ?
-      'component-stateless.jsx.ejs' : 'component.jsx.ejs';
+    const templateName = this.props.isStateless ? 'component-stateless.jsx.ejs' : 'component.jsx.ejs';
 
     // .jsx
     this.fs.copyTpl(

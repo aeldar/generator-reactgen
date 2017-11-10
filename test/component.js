@@ -7,9 +7,9 @@ describe('generator-reactgen:component', function () {
   describe('with simple name as argument', function () {
     before(function () {
       return helpers.run(path.join(__dirname, '../generators/component'))
-      .withArguments(['KillMe'])
-      .withPrompts({isStateless: true, hasStyles: true})
-      .toPromise();
+        .withArguments(['KillMe'])
+        .withPrompts({isStateless: true, hasStyles: true})
+        .toPromise();
     });
 
     it('creates jsx files inside common dir', function () {
@@ -27,9 +27,9 @@ describe('generator-reactgen:component', function () {
   describe('with complex name as argument', function () {
     before(function () {
       return helpers.run(path.join(__dirname, '../generators/component'))
-      .withArguments(['pageOne/KillMe/KillMe'])
-      .withPrompts({isStateless: true, hasStyles: true})
-      .toPromise();
+        .withArguments(['pageOne/KillMe/KillMe'])
+        .withPrompts({isStateless: true, hasStyles: true})
+        .toPromise();
     });
 
     it('creates jsx files inside specified dir', function () {
@@ -47,9 +47,9 @@ describe('generator-reactgen:component', function () {
   describe('with messed names as argument', function () {
     before(function () {
       return helpers.run(path.join(__dirname, '../generators/component'))
-      .withArguments(['///pageTwo//KillMe//KillMe///'])
-      .withPrompts({isStateless: true, hasStyles: true})
-      .toPromise();
+        .withArguments(['///pageTwo//KillMe//KillMe///'])
+        .withPrompts({isStateless: true, hasStyles: true})
+        .toPromise();
     });
 
     it('creates jsx files inside normilised specified dir', function () {

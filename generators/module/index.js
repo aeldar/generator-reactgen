@@ -14,7 +14,6 @@ const color = {
 };
 
 module.exports = class extends Generator {
-
   constructor(args, opts) {
     super(args, opts);
 
@@ -46,10 +45,9 @@ module.exports = class extends Generator {
 
     const prompts = [];
 
-    return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    }.bind(this));
+    return this.prompt(prompts).then(props => {
+      this.props = props; // To access props later use this.props.someAnswer;
+    });
   }
 
   writing() {
