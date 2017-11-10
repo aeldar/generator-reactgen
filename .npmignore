@@ -1,7 +1,5 @@
-node_modules/
 coverage/
-
+test/
 .idea/
 
 yarn-error.log
-npm-debug.log
