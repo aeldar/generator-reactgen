@@ -2,7 +2,8 @@ generator-reactgen
 ==================
 Yeoman generator for React/Redux apps
 
-## Installation
+Installation
+------------
 
 First, install [Yeoman](http://yeoman.io) using [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/)
  (it is assumed that [node.js](https://nodejs.org/) has already been pre-installed).
@@ -11,15 +12,8 @@ First, install [Yeoman](http://yeoman.io) using [yarn](https://yarnpkg.com) or [
 yarn global add yo # or: npm i -g yo
 ```
 
-Then clone this repo, and link it globaly:
-
-```bash
-git clone git@bitbucket.org:aeldar/generator-reactgen.git
-cd generator-reactgen
-yarn link # or: npm link
-```
-
-## Usage
+Usage
+-----
 
 ### Initialization
 
@@ -58,6 +52,17 @@ yo reactgen:component pageOne/MyComponent/MyComponent
 yo reactgen:module new_module_name
 ```
 
-## License
+Intallation for development
+---------------------------
 
- © [Eldar Aliyev](https://bitbucket.org/aeldar/)
+Clone this repo, and link it globaly:
+
+```bash
+git clone git@bitbucket.org:aeldar/generator-reactgen.git
+cd generator-reactgen
+yarn link # or: npm link
+```
+
+Author
+------
+* [Eldar Aliyev](https://bitbucket.org/aeldar/)
