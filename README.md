@@ -17,12 +17,18 @@ Usage
 -----
 
 ### Initialization
-
-Then generate your new project (currently just mark the root of the project):
+_just mark the root of the project_:
 
 ```bash
 yo reactgen
 ```
+
+### Create initial structure
+
+```bash
+yo reactgen:init
+```
+
 ### New component
 
 To create a new component:
@@ -63,6 +69,11 @@ git clone git@bitbucket.org:aeldar/generator-reactgen.git
 cd generator-reactgen
 yarn link # npm link
 ```
+
+TODO
+----
+* Update React/Redux init template.
+* Make init and save .yo-rc a single step.
 
 License
 -------

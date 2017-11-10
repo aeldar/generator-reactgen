@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "mocha",
+    "chai-expect"
+  ],
+  "extends": "airbnb",
+  "globals": {
+    "__DEV__": true,
+    "__NODE_ENV__": true,
+    "sinon": true
+  },
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-confusing-arrow": 0,
+    "react/jsx-quotes": 0,
+    "jsx-quotes": [
+      2,
+      "prefer-double"
+    ],
+    "import/imports-first": [2, ""],
+    "no-mixed-operators": "off",
+    "import/no-extraneous-dependencies": [2, {"devDependencies": true}]
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}

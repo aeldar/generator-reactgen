@@ -1,0 +1,13 @@
+/build/
+/logs/
+/reports/
+
+# logs
+npm-debug.log*
+
+# packages
+node_modules/
+bower_components/
+
+# IDEs
+.idea/

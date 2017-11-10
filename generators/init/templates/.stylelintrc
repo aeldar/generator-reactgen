@@ -1,0 +1,25 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "string-quotes": "double",
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global", "local"] }],
+    "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
+    "declaration-block-trailing-semicolon": null,
+    "number-leading-zero": "never",
+    "selector-pseudo-element-colon-notation": null,
+    "at-rule-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "block-no-empty": null,
+    "declaration-empty-line-before": null,
+    "rule-nested-empty-line-before": null,
+
+    "max-nesting-depth": 3
+  },
+  "ignoreFiles": [
+    "node_modules/**/*.s?css",
+    "bower_components/**/*.s?css"
+  ]
+}

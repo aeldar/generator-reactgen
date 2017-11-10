@@ -1,0 +1,72 @@
+{
+  "src_folders": ["tests"],
+  "output_folder": "reports",
+  "custom_commands_path": "",
+  "custom_assertions_path": "",
+  "page_objects_path": "pageObjects",
+  "globals_path": "",
+
+  "test_runner": {
+    "type": "mocha",
+    "options": {
+      "ui": "bdd",
+      "reporter": "spec",
+      "require": "_setup.js"
+    }
+  },
+  "selenium": {
+    "start_process": true,
+    "server_path":
+      "../../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar",
+    "log_path": "",
+    "host": "127.0.0.1",
+    "port": 4444,
+    "cli_args": {
+      "webdriver.chrome.driver":
+        "../../node_modules/webdriver-manager/selenium/chromedriver_2.22",
+      "webdriver.ie.driver": "",
+      "webdriver.gecko.driver": "../../node_modules/.bin/geckodriver_0.9.0"
+    }
+  },
+
+  "test_settings": {
+    "default": {
+      "launch_url": "http://localhost:3000",
+      "selenium_port": 4444,
+      "selenium_host": "localhost",
+      "silent": true,
+      "screenshots": {
+        "enabled": false,
+        "path": "screenshots"
+      },
+      "desiredCapabilities": {
+        "browserName": "phantomjs",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
+
+    "staging": {
+      "launch_url": "https://__my-url__"
+    },
+
+    "firefox": {
+      "silent": true,
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "marionette": true,
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
+
+    "chrome": {
+      "silent": true,
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    }
+  }
+}

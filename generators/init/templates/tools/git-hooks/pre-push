@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# reformat and lint styles
+npm run csscomb && npm run stylelint
