@@ -1,5 +1,7 @@
 generator-reactgen [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 ==================
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/aeldar/generator-reactgen.svg)](https://greenkeeper.io/)
 Yeoman generator for React/Redux apps
 
 Installation
