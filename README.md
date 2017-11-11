@@ -1,7 +1,7 @@
-generator-reactgen [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+generator-reactgen
 ==================
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url][![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/aeldar/generator-reactgen.svg)](https://greenkeeper.io/)
 Yeoman generator for React/Redux apps
 
 Installation
@@ -91,4 +91,5 @@ MIT © [Eldar Aliyev]()
 [daviddm-url]: https://david-dm.org/aeldar/generator-reactgen
 [coveralls-image]: https://coveralls.io/repos/aeldar/generator-reactgen/badge.svg
 [coveralls-url]: https://coveralls.io/r/aeldar/generator-reactgen
-
+[greenkeeper-image]: https://badges.greenkeeper.io/aeldar/generator-reactgen.svg
+[greenkeeper-url]: https://greenkeeper.io/
