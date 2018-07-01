@@ -10,9 +10,15 @@
     "email": "eldar.aliyev8@gmail.com",
     "url": "https://memo.ypsilon.kz"
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/app/index.js",
-  "keywords": ["react", "redux", "yeoman-generator"],
+  "keywords": [
+    "react",
+    "redux",
+    "yeoman-generator"
+  ],
   "devDependencies": {
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.4.0",
@@ -30,26 +36,37 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "lodash": "^4.17.4",
-    "yeoman-generator": "^3.0.0",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
   "jest": {
     "testEnvironment": "node",
-    "testPathIgnorePatterns": [".*/templates/"]
+    "testPathIgnorePatterns": [
+      ".*/templates/"
+    ]
   },
   "scripts": {
     "lint": "eslint .",
     "prepublish": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "test": "jest"
+    "test": "jest; node .github/setup.js"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "*.json": ["prettier --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
@@ -63,6 +80,8 @@
         }
       ]
     },
-    "plugins": ["prettier"]
+    "plugins": [
+      "prettier"
+    ]
   }
 }
