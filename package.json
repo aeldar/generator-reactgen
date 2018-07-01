@@ -50,7 +50,7 @@
     "prepublish": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "test": "jest; node .github/setup.js"
+    "test": "jest; node .github/setup.js; node .github/setup.js"
   },
   "lint-staged": {
     "*.js": [
